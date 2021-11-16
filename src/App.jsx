@@ -1,23 +1,44 @@
 import React, { useState } from 'react'
-import { ListOfGifs } from './components/ListOfGifs/ListOfGid'
-import { Route, Link } from 'wouter'
-import './App.css' 
+import { Home } from './pages/Home'
+import { Results } from './pages/Results'
+import { Details } from './pages/Details'
+import { Route, Link, useLocation } from 'wouter'
+import { Context, GifsContextProvider } from './context/GifsContext'
 
 const App = () => {
-  const [keyword, setKeyword] = useState('Goku')
+  const [keyword, setKeyword] = useState('')
+  const [, setLocation] = useLocation()
+
+  function handleChange (e) {
+    setKeyword(e.target.value)
+  }
+
+  function handleSubmit (e) {
+    e.preventDefault()
+    setLocation(`/gifs/${keyword}`)
+  }
+
   return (
-    <section className="App">
-      <h1>App</h1>
-      <Link href="/gifs/Goku">Gifs de Goku</Link>
-      <Link href="/gifs/Vegueta">Gifs de Vegueta</Link>
-      <Link href="/gifs/Krillin">Gifs de Krillin</Link>
-      <Link href="/gifs/Picollo">Gifs de Picollo</Link>
-      <Link href="/gifs/Gohan">Gifs de Gohan</Link>
-      
-      <Route path="/gifs/:keyword">
-        {params => <ListOfGifs keyword={params.keyword} />}
-      </Route>
-    </section>
+    <GifsContextProvider>
+      <section className="App">
+        <h1 className="App__logo">
+          <Link href="/">Giffy</Link>
+        </h1>
+        <form onSubmit={ handleSubmit }>
+          <input onChange={ handleChange } placeholder="Buscar..." value={ keyword }/>
+          <button type="submit">Buscar</button>
+        </form>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/gifs/:keyword">
+          {params => <Results keyword={params.keyword} />}
+        </Route>
+        <Route path="/gif/:id">
+          {params => <Details id={params.id} />}
+        </Route>
+      </section>
+    </GifsContextProvider>
   )
 }
 

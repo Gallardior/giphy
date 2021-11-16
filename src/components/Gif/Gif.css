@@ -1,3 +1,16 @@
 .Gif {
-  border: 1px solid red;
+  position: relative;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.Gif__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: .75rem;
+  font-weight: 500;
+  padding: .5rem;
+  background: rgba(0, 0, 0, .5);
 }
