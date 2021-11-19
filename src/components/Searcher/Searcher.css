@@ -1,0 +1,40 @@
+.FormSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.FormSearch__input {
+  padding: .5rem .75rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border: none;
+  transition: box-shadow .3s;
+}
+
+.FormSearch__input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 255, 255, .5);
+}
+
+.FormSearch__button {
+  padding: .5rem .75rem;
+  background: #0068b8;
+  color: #fff;
+  border: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.FormSearch__button:focus {
+  outline: none;
+  background: #005291;
+}
+
+.FormSearch__button:hover {
+  background: #005291;
+
+}

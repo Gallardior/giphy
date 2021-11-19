@@ -1,22 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { Searcher } from './components/Searcher/Searcher'
+// import { Searcher } from './components/Searcher/Searcher'
 import { Home } from './pages/Home'
 import { Results } from './pages/Results'
 import { Details } from './pages/Details'
-import { Route, Link, useLocation } from 'wouter'
-import { Context, GifsContextProvider } from './context/GifsContext'
+import { Route, Link } from 'wouter'
+import { GifsContextProvider } from './context/GifsContext'
 
 const App = () => {
-  const [keyword, setKeyword] = useState('')
-  const [, setLocation] = useLocation()
-
-  function handleChange (e) {
-    setKeyword(e.target.value)
-  }
-
-  function handleSubmit (e) {
-    e.preventDefault()
-    setLocation(`/gifs/${keyword}`)
-  }
 
   return (
     <GifsContextProvider>
@@ -24,10 +15,7 @@ const App = () => {
         <h1 className="App__logo">
           <Link href="/">Giffy</Link>
         </h1>
-        <form onSubmit={ handleSubmit }>
-          <input onChange={ handleChange } placeholder="Buscar..." value={ keyword }/>
-          <button type="submit">Buscar</button>
-        </form>
+        <Searcher />
         <Route path="/">
           <Home />
         </Route>

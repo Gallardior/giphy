@@ -1,9 +1,40 @@
 .TrendGifs {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  color: white;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  text-align: right;
 }
 
+.TrendGifs__title {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.TrendGifs__list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  color: white;
+  font-weight: 600;
+  font-size: .75rem;
+}
+
+.TrendGifs__list a {
+  transition: opacity .3s;
+}
+
+.TrendGifs__list a:hover {
+  opacity: .75;
+}
+
+@media (max-width: 780px) {
+  .TrendGifs {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .TrendGifs__list {
+    flex-direction: row;
+    gap: .75rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
