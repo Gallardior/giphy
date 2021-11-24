@@ -1,25 +1,39 @@
-import React from 'react'
-// import ContentLoader from 'react-content-loader'
+import React from "react";
+import Masonry from "react-masonry-css";
+import { BoxLoader } from "../BoxLoader/BoxLoader";
 import './GridLoader.css'
 
 const GridLoader = () => {
 
+  const config = {
+    default: 4,
+    1100: 4,
+    700: 3,
+    500: 2
+  }
+
   return (
-    <div className="GridLoader">
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-      <span className="GridLoader__item"></span>
-      <span className="GridLoader__item--inpar"></span>
-    </div>  
+
+    <Masonry
+      breakpointCols={config}
+      className="GridLoader"
+      columnClassName="GridLoader__column">
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+        <BoxLoader />
+    </Masonry>
   )
 }
 

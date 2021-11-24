@@ -1,33 +1,13 @@
-:root {
-  --columns: 4;
-}
-
 .ListOfGifs {
-  column-count: var(--columns);
-  column-gap: 8px;
+  display: flex;
+  margin-left: -8px; /* gutter size offset */
+  width: auto;
+}
+.ListOfGifs__column {
+  padding-left: 8px; /* gutter size */
+  background-clip: padding-box;
 }
 
-@media (max-width: 780px) {
-  :root {
-    --columns: 3;
-  }
-
-  .TrendGifs {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .TrendGifs__list {
-    flex-direction: row;
-    gap: .75rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 450px) {
-  :root {
-    --columns: 2;
-  }
+.ListOfGifs__column > a { 
+  margin-bottom: 8px; /* gutter size */
 }

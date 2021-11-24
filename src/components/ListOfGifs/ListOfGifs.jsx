@@ -1,17 +1,27 @@
 import React from "react";
+import Masonry from "react-masonry-css";
 import { Gif } from "../Gif/Gif";
-// import { Loader } from "../Loader/Loader";
-// import { useGifs } from "../../hooks/useGifs";
 import './ListOfGifs.css'
 
 const ListOfGifs = ({ gifs }) => {
 
+  const config = {
+    default: 4,
+    1100: 4,
+    700: 3,
+    500: 2
+  }
+
   return (
-    <div className="ListOfGifs">
+
+    <Masonry
+      breakpointCols={config}
+      className="ListOfGifs"
+      columnClassName="ListOfGifs__column">
       {
-        gifs.map(gif => <Gif key={ gif.id } {...gif} />)
+        gifs.map((gif, i) => <Gif key={gif.id + gif.url} {...gif} />)
       }
-    </div>  
+    </Masonry>
   )
 }
 

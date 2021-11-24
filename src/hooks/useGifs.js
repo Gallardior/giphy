@@ -22,7 +22,7 @@ function useGifs( keyword = localStorage.getItem('lastKey') ) {
     if (page !== INITIAL_PAGE) {
       setLoading(true)
       getGifs({ keyword, page }).then(data => {
-        setGifs(data)
+        setGifs(gifs.concat(data))
         setLoading(false)
       })
     }

@@ -31,6 +31,10 @@ a {
   text-decoration: none;
 }
 
+.d-none {
+  display: none;
+}
+
 .App {
   width: 95%;
   max-width: 1400px;
@@ -52,8 +56,17 @@ a {
 }
 
 .Gifs__container {
+  position: relative;
   min-height: 100vh;
   grid-column: span 4;
+}
+
+#visor {
+  /* padding: 1rem; */
+  /* background: #FFF; */
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
 }
 
 .LastKey__title {
