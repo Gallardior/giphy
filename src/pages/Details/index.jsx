@@ -14,4 +14,4 @@ const Details = ({id}) => {
   )
 }
 
-export { Details } 
+export default Details

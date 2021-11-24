@@ -3,7 +3,7 @@ import { BoxLoader } from "../BoxLoader/BoxLoader";
 import { Link } from "wouter";
 import './Gif.css'
 
-const Gif = ({ id, title, url}) => {
+const StaticGif = ({ id, title, url}) => {
 
   const [loaded, setLoaded] = useState(false)
   const className = !loaded ? 'd-none' : ''
@@ -19,4 +19,6 @@ const Gif = ({ id, title, url}) => {
   )
 }
 
+const Gif = React.memo(StaticGif)
 export { Gif }
+// export default React.memo(Gif)

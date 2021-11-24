@@ -31,4 +31,4 @@ const Results = ({keyword}) => {
   )
 }
 
-export { Results }
+export default Results
